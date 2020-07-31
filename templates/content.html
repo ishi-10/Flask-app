@@ -38,7 +38,7 @@ background-color: white;
         {% for i in range(6) %}
             <li>{{q[i]}}</li>
             {% for j in o[i] %}
-                <input type='button' class="button" value='{{j}}' name='{{i}}' />{{j}}
+                <input type='radio' class="button" value='{{j}}' name='{{i}}' />{{j}}
             {% endfor %}
         {% endfor %}
     </ol>
