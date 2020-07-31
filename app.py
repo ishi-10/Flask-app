@@ -1,3 +1,5 @@
+from typing import Dict
+
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
@@ -19,9 +21,9 @@ def quiz():
 @app.route('/quiz', methods=['POST']) # specificying POST is important, else you will get 'Method not allowed' error.
 def quiz_answers():
     correct = 0
-    for i in range(6):
-        answered = request.form.get[i]
-        if ans[i] == answered:
+    data: Dict = request.form.to_dict()
+    for i, a in enumerate(data.values()):
+        if ans[i] == a:
             correct = correct+1
     return '<h1>Correct Answers: <u>'+str(correct)+'</u></h1>'
 
